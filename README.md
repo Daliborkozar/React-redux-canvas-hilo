@@ -1,3 +1,7 @@
+Project for Esagaming - High low Card Game using React - Redux - Canvas
+
+Used API : https://deckofcardsapi.com/
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
