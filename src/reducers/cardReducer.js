@@ -18,6 +18,7 @@ const cardReducer = (state=initialState, action) => {
             }
         case FETCH_CARDS_SUCCESS:
             return {
+                ...state,
                 loading: false,
                 deck_id: action.payload.deck_id,
                 remaining: action.payload.remaining,
@@ -25,8 +26,8 @@ const cardReducer = (state=initialState, action) => {
             }
         case FETCH_CARDS_FAIL:
             return{
+                ...state,
                 loading: false,
-                cards: [],
                 error: action.payload
             }
         default: return state
