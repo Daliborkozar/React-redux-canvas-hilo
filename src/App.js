@@ -1,26 +1,22 @@
-import React, {useEffect} from 'react';
-import './App.css';
-import {Interface} from './game/Interface'
-import {CardBoard} from './game/CardBoard'
+import React, { useEffect } from 'react';
+
 import { useDispatch } from 'react-redux'
-import { fetchCardsDeck } from './actions/cardsAction'
+import { fetchCardsDeck } from '../src/actions/cardsAction'
+import Game from './game/Game'
 
 
-
-
-const App =( )=> {
+const App =()=> {
   const dispatch = useDispatch()
-  
-  useEffect( ()=> {
-    
+
+  useEffect( ()=> {  
     dispatch(fetchCardsDeck())
 
   },[dispatch])
 
   return (
     <div className="App">
-        <CardBoard />
-        <Interface />
+        <Game />
+        
     </div>
   );
 }

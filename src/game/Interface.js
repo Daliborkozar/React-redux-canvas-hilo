@@ -15,8 +15,6 @@ export const Interface = ( ) => {
         dispatch(fetchDrawCard(deck_id, currentCard))
     }
 
-    
-
     const changeBetHandler = e => {
             setBet(e.target.value)
         }
@@ -28,8 +26,6 @@ export const Interface = ( ) => {
         dispatch(placeBet(newBet))
         }
     }
-
-    console.log(bet)
 
     return (
         <div>
