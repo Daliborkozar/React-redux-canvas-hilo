@@ -4,7 +4,8 @@ import {
     FETCH_CARDS_FAIL,
     FETCH_DRAWCARD_REQUEST,
     FETCH_DRAWCARD_SUCCESS,
-    FETCH_DRAWCARD_FAIL
+    FETCH_DRAWCARD_FAIL,
+    RESET_GAME
 
 } from '../actions/types'
 
@@ -12,7 +13,10 @@ const initialState={
     deck_id: null,
     remaining: null,
     error:'',
-    loading: false   
+    loading: false, 
+    playedCards: [],
+    currentCard: null,
+    previousCard: null
 }
 
 const cardReducer = (state=initialState, action) => {
@@ -28,7 +32,9 @@ const cardReducer = (state=initialState, action) => {
                 loading: false,
                 deck_id: action.payload.deck_id,
                 remaining: action.payload.remaining,
-                error: ''
+                error: '',
+                
+                
             }
         case FETCH_CARDS_FAIL:
             return {
@@ -46,13 +52,21 @@ const cardReducer = (state=initialState, action) => {
                 ...state,
                 ...action.payload,
                 loading: false,
-                error: ''
+                error: '',
+                previousCard: state.currentCard,
+                currentCard: action.payload.cards[0],
+                playedCards: [...state.playedCards, action.payload.cards[0].image]
+
             }
         case FETCH_DRAWCARD_FAIL:
             return {
                 ...state,
                 loading: false,
                 error: action.payload
+            }
+        case RESET_GAME:
+            return {
+                ...initialState
             }
         
         default: return state

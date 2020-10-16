@@ -4,7 +4,8 @@ import {
     FETCH_CARDS_FAIL,
     FETCH_DRAWCARD_REQUEST,
     FETCH_DRAWCARD_SUCCESS,
-    FETCH_DRAWCARD_FAIL
+    FETCH_DRAWCARD_FAIL,
+    
 
 } from '../actions/types'
 import axios from 'axios'
@@ -67,7 +68,7 @@ export const fetchCardsDeck =()=> (dispatch) => {
         })
 }
 
-export const fetchDrawCard = (id) => (dispatch) => {
+export const fetchDrawCard = (id, card) => (dispatch) => {
     fetchDrawnCardRequest()
     axios.get(`https://deckofcardsapi.com/api/deck/${id}/draw/?count=1`)
         .then(response => {

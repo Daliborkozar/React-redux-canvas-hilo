@@ -7,7 +7,7 @@ import {createStore, applyMiddleware, compose} from 'redux'
 import { Provider } from 'react-redux'
 import rootReducer  from './reducers/rootReducer'
 import thunk from 'redux-thunk'
-import {fetchCardsDeck} from './actions/cardsAction'
+
 
 
 //https://stackoverflow.com/questions/56215220/react-redux-error-passing-several-store-enhancers-to-createstore
@@ -19,9 +19,7 @@ const store= createStore(
   composeEnheancer(applyMiddleware(thunk))
   );
   
-//test
-store.subscribe(() =>{console.log(store.getState())})
-store.dispatch(fetchCardsDeck())
+
 
 
 ReactDOM.render(
