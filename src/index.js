@@ -18,9 +18,6 @@ const store= createStore(
   rootReducer,
   composeEnheancer(applyMiddleware(thunk))
   );
-  
-
-
 
 ReactDOM.render(
   <Provider store={store}>

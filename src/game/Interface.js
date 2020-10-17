@@ -36,7 +36,7 @@ export const Interface = ( ) => {
                 <button>LOW</button>
                 <form onSubmit={onSubmitHandler}>
                 <label htmlFor="quantity">Bet: (between 10 and {`${playerBalance}`}):</label>
-                <input  name='bet'  placeholder='place your bet' type='number' variant="outlined" size="small"  onChange={changeBetHandler} />
+                <input  name='bet'  value={bet} placeholder='place your bet' type='number' variant="outlined" size="small"  onChange={changeBetHandler} />
                 <button type="submit">Place your Bet</button>
                 </form>
                 <button>RESET</button>

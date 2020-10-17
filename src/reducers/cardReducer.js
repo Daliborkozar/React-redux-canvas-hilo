@@ -15,7 +15,7 @@ const initialState={
     error:'',
     loading: false, 
     playedCards: [],
-    currentCard: null,
+    currentCard: [],
     previousCard: null
 }
 

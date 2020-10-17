@@ -57,7 +57,7 @@ export const fetchDrawnCardFail = (error) => {
 
 export const fetchCardsDeck =()=> (dispatch) => {
     //loading:true
-    fetchCardsRequest()
+    dispatch(fetchCardsRequest())
     axios.get('https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1')
         .then(response =>{
             const data= response.data
@@ -69,7 +69,7 @@ export const fetchCardsDeck =()=> (dispatch) => {
 }
 
 export const fetchDrawCard = (id, card) => (dispatch) => {
-    fetchDrawnCardRequest()
+    dispatch(fetchDrawnCardRequest())
     axios.get(`https://deckofcardsapi.com/api/deck/${id}/draw/?count=1`)
         .then(response => {
             const data = response.data

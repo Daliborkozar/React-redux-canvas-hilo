@@ -1,8 +1,11 @@
-import React, {useRef, useEffect,} from 'react'
+import React, {useRef, useEffect} from 'react'
+import {useSelector} from 'react-redux'
 
 export const CardBoard = () => {
-    
+    const card = useSelector(state => state.cardReducer.currentCard.image)
+
     const canvasRef = useRef(null)
+
     const cardBack = ctx => {
         let img = new Image()
         img.src = 'https://www.simonlucasbridgesupplies.co.uk/wp-content/uploads/product_images/pc10g_blue-150x150.jpg'
@@ -12,8 +15,8 @@ export const CardBoard = () => {
     const playCard = ctx => {
         
         let img = new Image()
-        img.src = {}
-        ctx.drawImage(img, 400, 150, 100, 100)
+        img.src = card
+        ctx.drawImage(img, 300, 150, 100, 140)
         
     }
     useEffect(() => {
@@ -35,7 +38,7 @@ export const CardBoard = () => {
           window.cancelAnimationFrame(animationFrameId)
         }
         
-      }, [ cardBack ])
+      }, [ cardBack, playCard])
 
     return (
         <div>
