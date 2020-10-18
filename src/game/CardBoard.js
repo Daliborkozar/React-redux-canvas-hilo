@@ -3,6 +3,9 @@ import {useSelector} from 'react-redux'
 
 export const CardBoard = () => {
     const card = useSelector(state => state.cardReducer.currentCard.image)
+    const playedCards = useSelector(state => state.cardReducer.playedCards)
+    console.log(playedCards.length)
+   
 
     const canvasRef = useRef(null)
 
@@ -13,12 +16,22 @@ export const CardBoard = () => {
     }
 
     const playCard = ctx => {
-        
         let img = new Image()
         img.src = card
         ctx.drawImage(img, 300, 150, 100, 140)
-        
+        }
+
+    const playedCardsArr = ctx => {
+        if(playedCards.length > 0){
+            for(let i=0; i<playedCards.length; i++) {
+                let img = new Image()
+                img.src = playedCards[i]
+                ctx.drawImage(img, 150+ i *20, 300 ,100,140)
+                
+            }
+        }
     }
+    
     useEffect(() => {
         const canvas = canvasRef.current
         const context = canvas.getContext('2d')
@@ -29,6 +42,7 @@ export const CardBoard = () => {
           
           cardBack(context)
           playCard(context)
+          playedCardsArr(context)
           
           animationFrameId = window.requestAnimationFrame(render)
         }
@@ -38,11 +52,11 @@ export const CardBoard = () => {
           window.cancelAnimationFrame(animationFrameId)
         }
         
-      }, [ cardBack, playCard])
+      }, [ cardBack, playCard, playedCardsArr])
 
     return (
         <div>
-            <canvas ref={canvasRef}  height="400" width="800"/>
+            <canvas ref={canvasRef}  height="500" width="800"/>
         </div>
     )
 }

@@ -4,7 +4,8 @@ import {
     PLACE_BET,
     GAME_STATUS,
     BALANCE_WIN,
-    BALANCE_LOOSE
+    BALANCE_LOOSE,
+    RESET_GAME
     
 } from '../actions/types'
 
@@ -35,6 +36,10 @@ export const interfaceReducer = (state=initialState, action) => {
             return {
                 ...state,
                 bet: state.bet > state.playerBalance ? state.playerBalance : state.bet
+            }
+        case RESET_GAME:
+            return {
+                ...initialState
             }
         default: return state
         

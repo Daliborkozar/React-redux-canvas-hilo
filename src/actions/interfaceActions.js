@@ -34,7 +34,7 @@ export const newGame = () => {
     }
 }
 
-export const resetGAme = () => {
+export const resetGame = () => {
     return {
         type: RESET_GAME
     }

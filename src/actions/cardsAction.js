@@ -4,10 +4,11 @@ import {
     FETCH_CARDS_FAIL,
     FETCH_DRAWCARD_REQUEST,
     FETCH_DRAWCARD_SUCCESS,
-    FETCH_DRAWCARD_FAIL,
-    
-
+    FETCH_DRAWCARD_FAIL
 } from '../actions/types'
+
+import {resetGame} from './interfaceActions'
+
 import axios from 'axios'
 
 // fetch card request
@@ -55,6 +56,8 @@ export const fetchDrawnCardFail = (error) => {
     }
 }
 
+
+
 export const fetchCardsDeck =()=> (dispatch) => {
     //loading:true
     dispatch(fetchCardsRequest())
@@ -68,7 +71,7 @@ export const fetchCardsDeck =()=> (dispatch) => {
         })
 }
 
-export const fetchDrawCard = (id, card) => (dispatch) => {
+export const fetchDrawCard = (id, card, hilo="") => (dispatch) => {
     dispatch(fetchDrawnCardRequest())
     axios.get(`https://deckofcardsapi.com/api/deck/${id}/draw/?count=1`)
         .then(response => {
@@ -79,3 +82,4 @@ export const fetchDrawCard = (id, card) => (dispatch) => {
             dispatch(fetchDrawnCardFail(error.message))
         })
 }
+
