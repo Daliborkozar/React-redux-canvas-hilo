@@ -18,7 +18,7 @@ export const Interface = ( ) => {
     }
 
     const changeBetHandler = e => {
-            setBet(e.target.value)
+            setBet(Number(e.target.value))
         }
     
 

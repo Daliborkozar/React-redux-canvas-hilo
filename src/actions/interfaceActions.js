@@ -14,20 +14,6 @@ export const placeBet = bet => {
     }
 }
 
-export const balanceWin = data => {
-    return {
-        type: BALANCE_WIN,
-        payload: parseInt(data)
-    }
-}
-
-export const balanceLoose = data => {
-    return {
-        type: BALANCE_LOOSE,
-        payload: parseInt(data)
-    }
-}
-
 export const newGame = () => {
     return {
     type: NEW_GAME
