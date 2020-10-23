@@ -2,8 +2,6 @@ import {
     RESET_GAME,
     PLACE_BET,
     NEW_GAME,
-    BALANCE_WIN,
-    BALANCE_LOOSE
 } from './types'
 
 

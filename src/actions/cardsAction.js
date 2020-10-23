@@ -5,12 +5,10 @@ import {
   FETCH_DRAWCARD_REQUEST,
   FETCH_DRAWCARD_SUCCESS,
   FETCH_DRAWCARD_FAIL,
-  BALANCE_WIN,
-  BALANCE_LOOSE,
 } from "../actions/types";
 
-import { resetGame } from "./interfaceActions";
-import {compareCards } from '../utils/utils'
+
+import { compareCards } from "../utils/utils";
 
 import axios from "axios";
 
@@ -59,18 +57,10 @@ export const fetchDrawnCardFail = (error) => {
   };
 };
 
-// const compareCards = ( Cardflip, currentC, hilo) => {
-//     const balanceUporDown = compareValues( Cardflip , currentC) === hilo ? BALANCE_WIN : BALANCE_LOOSE
-//     return {
-//         balanceUporDown
-//     }
-// }
-
-const compareCardsVal = ( prev, curr, tag) => {
-    const type = compareCards(prev,curr, tag)
-    return { type, }
-}
-
+const compareCardsVal = (prev, curr, tag) => {
+  const type = compareCards(prev, curr, tag);
+  return { type };
+};
 
 export const fetchCardsDeck = () => (dispatch) => {
   //loading:true
@@ -86,7 +76,7 @@ export const fetchCardsDeck = () => (dispatch) => {
     });
 };
 
-export const fetchDrawCard = (id, card, hilo = '') => (dispatch) => {
+export const fetchDrawCard = (id, card, hilo = "") => (dispatch) => {
   dispatch(fetchDrawnCardRequest());
   axios
     .get(`https://deckofcardsapi.com/api/deck/${id}/draw/?count=1`)
